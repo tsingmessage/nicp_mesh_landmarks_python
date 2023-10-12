@@ -40,8 +40,8 @@ def write_ply_file_NICP(mesh, reg, savepath):
 
 #read source file
     
-sourcemesh = o3d.io.read_triangle_mesh("template.ply")
-targetmesh = o3d.io.read_triangle_mesh("200302163010.ply")
+sourcemesh = o3d.io.read_triangle_mesh("template_or_source_mesh.ply")
+targetmesh = o3d.io.read_triangle_mesh("target_mesh.ply")
 sourcemesh.compute_vertex_normals()
 targetmesh.compute_vertex_normals()
 
@@ -61,15 +61,9 @@ refined_sourcemesh = copy.deepcopy(sourcemesh)
 refined_sourcemesh.transform(affine_transform)
 refined_sourcemesh.compute_vertex_normals()
 
-landmark_list_source = [4518-1, 4915-1, 4955-1, 4805-1,1908-1, 2346-1, 2478-1]
-#landmark_list_target = [7045-1,26393-1,22717-1,22533-1,11501-1,1700-1,2678-1]
-f = open('200302163010.txt', 'r') # to read the landmark index
-landmark_target_txt = f.readlines()
-landmark_target_str = landmark_target_txt[len(landmark_target_txt)-7:]
-landmark_list_target = []
-for i in range(7):
-    landmark_list_target.append(int(landmark_target_str[i].replace('\n',''))-1)
-    #print(landmark_target_str[i])
+landmark_list_source = [4518-1, 4915-1, 4955-1, 4805-1,1908-1, 2346-1, 2478-1] #index for landmarks
+landmark_list_target = [7045-1,26393-1,22717-1,22533-1,11501-1,1700-1,2678-1]
+
 print(landmark_list_source)
 print(landmark_list_target)
 
