@@ -8,3 +8,4 @@ where landmarks were not supported
 
 
 We also found the ICP here doesn't work properly, will fixt it later..
+updates: can be solved by directly using an alternative ICP script: https://github.com/iitaakash/icp_python
